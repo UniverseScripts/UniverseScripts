@@ -32,7 +32,7 @@ Engineering scale requires distributed communication. I document system designs,
 
 * [[LinkedIn](www.linkedin.com/in/yoshio-nomura-b3219438b)] - Professional network and opportunity pipeline.
 * [[X](https://x.com/Asterios07)] - Real-time technical commentary and project updates.
-* [[YouTube Shorts](https://www.youtube.com/@AsteriosTech) / TikTok / Instagram] - Condensed technical telemetry and visual documentation of the development lifecycle.
+* [[YouTube Shorts](https://www.youtube.com/@AsteriosTech) / [TikTok](https://www.tiktok.com/@asteriostech) / [Instagram](https://www.instagram.com/asteriostech/)] - Condensed technical telemetry and visual documentation of the development lifecycle.
 
 ## 🔬 Current Research Focus
 
