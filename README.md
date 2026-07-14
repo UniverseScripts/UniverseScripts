@@ -8,9 +8,9 @@
   <a href="https://galacticgamer62.gumroad.com"><img src="https://img.shields.io/badge/Monetization-Gumroad_Active-10b981?style=flat-square&labelColor=18181b" alt="Gumroad"></a>
 </p>
 
-<div align="center" style="display: flex; justify-content: space-between; align-items: center;">
-  <img src="https://github-stats-extended.vercel.app/api/top-langs?username=UniverseScripts&layout=donut-vertical&langs_count=4&theme=tokyonight&hide_border=true&bg_color=09090b&title_color=3b82f6&text_color=fafafa" alt="GitHub Stats" width="53%" height="500"/>
-  <img src="https://github-stats-extended.vercel.app/api?username=UniverseScripts&rank_icon=github&custom_title=My%20GitHub%20Telemetry&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage,prs_commented,prs_reviewed,issues_commented&show_icons=true&include_all_commits=true&theme=tokyonight&hide_border=true&bg_color=09090b&title_color=3b82f6&text_color=fafafa" alt="Top Languages" width="45%" height="500"/>
+<div align="center">
+  <img src="https://github-stats-extended.vercel.app/api/top-langs?username=UniverseScripts&layout=donut-vertical&langs_count=4&theme=tokyonight&hide_border=true&bg_color=09090b&title_color=3b82f6&text_color=fafafa" alt="GitHub Stats" width="48%"/>
+  <img src="https://github-stats-extended.vercel.app/api?username=UniverseScripts&rank_icon=github&custom_title=My%20GitHub%20Telemetry&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage,prs_commented,prs_reviewed,issues_commented&show_icons=true&include_all_commits=true&theme=tokyonight&hide_border=true&bg_color=09090b&title_color=3b82f6&text_color=fafafa" alt="Top Languages" width="48%"/>
 </div>
 
 ### ── Operational Technology Matrix
@@ -56,7 +56,7 @@
   </tr>
 </table>
 
-<div align="center" style="display: flex; justify-content: space-between; align-items: center;">
+<div align="center">
 
   [![Pulsemind](https://img.shields.io/badge/Pulsemind-AI-3B82F6?style=flat-square&labelColor=09090b&logo=pytorch)](https://github.com/UniverseScripts/pulsemind-ai)
 
@@ -82,7 +82,7 @@
   </tr>
 </table>
 
-<div align="center" style="display: flex; justify-content: space-between; align-items: center;">
+<div align="center">
 
   [![Develarper](https://img.shields.io/badge/Develarper-AI-3B82F6?style=flat-square&labelColor=09090b&logo=amd)](https://github.com/UniverseScripts/develarper)
 
