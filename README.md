@@ -120,6 +120,7 @@ number, it is because nothing was instrumented — not because the number was di
 
 ### ── Elsewhere
 
+* [Portfolio](https://yoshio-nomura.vercel.app) — the projects above, with the conditions behind every figure
 * [LinkedIn](https://www.linkedin.com/in/yoshio-nomura-b3219438b)
 * [X](https://x.com/Asterios07)
 * [YouTube](https://www.youtube.com/@AsteriosTech) · [TikTok](https://www.tiktok.com/@asteriostech) · [Instagram](https://www.instagram.com/asteriostech/)
