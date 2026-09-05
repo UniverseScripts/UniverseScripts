@@ -3,6 +3,7 @@
 </div>
 
 <p align="center">
+  <a href="https://yoshio-nomura.vercel.app"><img src="https://img.shields.io/badge/Portfolio-yoshio--nomura.vercel.app-3b82f6?style=flat-square&labelColor=18181b" alt="Portfolio"></a>
   <a href="https://github.com/UniverseScripts"><img src="https://img.shields.io/badge/Level-Undergraduate_%2F_Intern-09090b?style=flat-square&labelColor=18181b" alt="Level"></a>
   <a href="https://vercel.com"><img src="https://img.shields.io/badge/Deployment-Vercel-3b82f6?style=flat-square&labelColor=18181b" alt="Vercel"></a>
   <a href="https://galacticgamer62.gumroad.com"><img src="https://img.shields.io/badge/Products-Gumroad-10b981?style=flat-square&labelColor=18181b" alt="Gumroad"></a>
