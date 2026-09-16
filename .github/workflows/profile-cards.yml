@@ -1,0 +1,110 @@
+name: Profile cards
+
+# Regenerates the activity cards embedded in README.md and commits them to profile/.
+# Cards are served from this repository, so the profile never depends on a shared public
+# stats instance being up. A card that fails to fetch keeps its previous committed version.
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily, 03:17 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/profile-cards.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+env:
+  # Set a STATS_TOKEN secret (PAT with read:user + repo) to count private contributions.
+  CARD_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+  STATS_COMMON: disable_animations=true&hide_rank=true&show_icons=true&include_all_commits=true&hide=stars&show=prs_merged,reviews&hide_border=true&bg_color=ffffff00&custom_title=GitHub%20activity
+  LANGS_COMMON: disable_animations=true&layout=compact&langs_count=6&hide_border=true&bg_color=ffffff00&custom_title=Top%20languages
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Stats card (light)
+        id: stats_light
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&${{ env.STATS_COMMON }}&title_color=0969da&icon_color=0969da&text_color=1f2328
+          path: profile/stats-light.svg
+          token: ${{ env.CARD_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Stats card (dark)
+        id: stats_dark
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&${{ env.STATS_COMMON }}&title_color=4493f8&icon_color=4493f8&text_color=f0f6fc
+          path: profile/stats-dark.svg
+          token: ${{ env.CARD_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Top languages (light)
+        id: langs_light
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&${{ env.LANGS_COMMON }}&title_color=0969da&text_color=1f2328
+          path: profile/top-langs-light.svg
+          token: ${{ env.CARD_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Top languages (dark)
+        id: langs_dark
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&${{ env.LANGS_COMMON }}&title_color=4493f8&text_color=f0f6fc
+          path: profile/top-langs-dark.svg
+          token: ${{ env.CARD_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Contribution snake
+        id: snake
+        continue-on-error: true
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            profile/snake-light.svg?palette=github-light
+            profile/snake-dark.svg?palette=github-dark
+
+      - name: Commit refreshed cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          if git diff --cached --quiet; then
+            echo "Cards unchanged."
+          else
+            git commit -m "chore(profile): refresh activity cards"
+            git push
+          fi
+
+      # Good cards are committed above; a failed card must still turn the run red,
+      # so a broken generator cannot hide behind a green check.
+      - name: Fail if any card failed to generate
+        if: >-
+          steps.stats_light.outcome == 'failure' || steps.stats_dark.outcome == 'failure' ||
+          steps.langs_light.outcome == 'failure' || steps.langs_dark.outcome == 'failure' ||
+          steps.snake.outcome == 'failure'
+        run: |
+          echo "::error::One or more cards failed to generate; the previous version was kept."
+          exit 1
