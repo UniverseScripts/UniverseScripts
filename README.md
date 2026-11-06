@@ -8,20 +8,28 @@
 
 **Backend and AI-infrastructure engineering** — routing, retrieval, and gating expensive compute behind cheap fast paths.
 
-Bachelor of Artificial Intelligence, University of Technology Sydney (expected 2028, GPA 3.7/4.0) · Backend AI Engineer — Internship (Remote) at FlyRank AI since July 2026 · Ho Chi Minh City
+Bachelor of Artificial Intelligence, University of Technology Sydney (expected 2028, GPA 3.7/4.0) · Backend AI Engineer — Internship (Remote) at FlyRank AI, July – September 2026 · Co-founder of [Pyrium](https://pyrium-private-ai.vercel.app), a three-person brand in development, not incorporated · Ho Chi Minh City
 
-The thread through my projects: put a cheap, fast decision in front of an expensive, slow one. In **Pulsemind** (team), an XGBoost classifier's forward pass scores an ICU stream event in under 5 ms, and only anomalies go on to an LLM call. In **Develarper** (team of four), a local Qwen 2.5 3B model reads each task's difficulty and routes it before a cloud API is touched.
+The thread through my projects: put a cheap, fast decision in front of an expensive, slow one. In **Pulsemind** (team), an XGBoost classifier scores each ICU reading in about 43 ms, including its TreeSHAP explanation, and only anomalies go on to an LLM call. In **Develarper** (team of four), a local Qwen 2.5 3B model reads each task's difficulty and routes it before a cloud API is touched.
 
 [Portfolio](https://yoshio-nomura.vercel.app) · [LinkedIn](https://www.linkedin.com/in/yoshio-nomura-b3219438b) · [X](https://x.com/Asterios07)
 
 ## Selected work
 
+### Alodi — rescuing failed deliveries · 3rd Place
+
+An AI agent built by team Develarper at the Sea × OpenAI Regional Codex Hackathon in Vietnam, where it placed third. When a delivery fails, the shipper taps once; Alodi reaches the buyer by chat and then an AI voice call, and rules in the backend — not the prompt — decide whether the extracted time window, drop-off point and stand-in receiver update the next attempt.
+
+- **3rd Place** — USD 5,000 in OpenAI API credits (shared team pool) and 1 year of ChatGPT Pro (the USD 200/month plan) per member.
+
+<sub>Team of 4 — team lead and presenter: scope, demo script and pitch · October 2026 · Sea × OpenAI Regional Codex Hackathon – Vietnam · Python · FastAPI · SQLite · OpenAI GPT-Live-1 · GPT-6.1 Terra · GPT Transcribe · Next.js</sub><br>
+[Repository →](https://github.com/khanhtuongnakitomo/TeamDevelarper_Alodi_RegionalCodexHackathon) · [Demo →](https://alodi-ai-system.vercel.app/demo)
+
 ### Develarper — LLM task router
 
 A two-tier router built by team Develarper for the AMD Developer Hackathon (Act II). A local Qwen 2.5 3B model scores each task's difficulty; hard tasks go to a cloud model on Fireworks and easy ones stay local.
 
-- **18 of 19** tasks routed to the correct tier, on a 19-task harness with self-defined labels.
-- **~80% of tasks** ran on the local model — a count of tasks, not tokens.
+- **711 of 800** tasks routed to the correct tier (88.9%), on the team's routing evaluation against team-written labels.
 - **93.00%** (186/200) answer quality over 100 factual and 100 summarization tasks, scored by similarity and Jaccard overlap against expected answers rather than human or LLM review. 6 of the 200 prompts contain unrendered template placeholders.
 - **505.1 ms** mean latency per task, across 200 sequential tasks.
 
@@ -32,8 +40,8 @@ A two-tier router built by team Develarper for the AMD Developer Hackathon (Act 
 
 An asynchronous ICU telemetry processor. An XGBoost classifier, selected in a bake-off against LightGBM and CatBoost over 109 ventilator, comorbidity and treatment features, scores incoming stream events and gates higher-cost LLM rationalisation so it fires only on detected anomalies.
 
-- **< 5 ms** classifier forward pass per stream event.
-- **< 50 ms** end to end; the anomaly path adds the LLM rationalisation step, roughly 15 seconds.
+- **~43 ms** to score each reading, including its TreeSHAP explanation — demo service, 7 readings.
+- The anomaly path adds the LLM rationalisation step, roughly 15 seconds.
 
 <sub>Trained on the credentialed MIMIC-IV (PhysioNet) de-identified ICU dataset under its data use agreement; demonstrations run on a synthetic derivative. No clinical deployment.</sub>
 
@@ -55,7 +63,7 @@ Built with team Hackaphobia at the GDGoC National Hackathon 2026 in Hanoi, where
 - **[Weatherise](https://github.com/UniverseScripts/weatherise-ai)** — a weather-intelligence pipeline: REST sources and NVIDIA Earth-2 surrogate models feed a multi-agent chain on Nemotron Ultra using MCP, with a Qdrant vector database for retrieval-augmented generation.<br><sub>Team — LLMOps & Backend AI Engineering · 9–11 June 2026 · Vietnam AI Open Hackathon (NVIDIA / OpenACC) · Python · Qdrant · Earth-2 · Nemotron Ultra · MCP</sub>
 - **[Vora](https://devcamp2-frontend.vercel.app)** — a quiz-verified learning roadmap. The backend resolver turns unstructured model output into validated, dependency-mapped directed acyclic graphs and checks prerequisite order. [Backend repository](https://github.com/PTAxHVA/devcamp2-backend).<br><sub>Team — backend engineer · April 2026 · GDGoC DevCamp, HCMUT · Express 5 · MongoDB · Zod · Fireworks · React 19 · React Flow</sub>
 - **[llmops](https://github.com/UniverseScripts/llmops)** — a self-hosted inference node on one machine: flan-t5-base in 8-bit with a LoRA adapter behind FastAPI, with PostgreSQL, Redis rate limiting, Traefik, a Cloudflare tunnel, and Prometheus and Grafana, all on Docker Compose.<br><sub>Solo · March 2026 · Python · FastAPI · PostgreSQL · Redis · Traefik · Prometheus · Grafana · Docker Compose</sub>
-- **[ArchitectureLab](https://architecturelab.vercel.app)** — a person and an agent inspect the same live system model; the agent calls tools the page registers through WebMCP and can only propose changes that a human applies. [Repository](https://github.com/UniverseScripts/webmcp).<br><sub>Team of 3 — scaffold, WebMCP adapter, deployment · September 2026 · OpenAI WebMCP Challenge · React 19 · Vite · TypeScript · Playwright</sub>
+- **[ArchitectureLab](https://architecturelab.vercel.app)** — a person and an agent inspect the same live system model; the agent calls tools the page registers through WebMCP and can only propose changes that a human applies. [Repository](https://github.com/UniverseScripts/webmcp).<br><sub>Team of 3 — scaffold, WebMCP adapter, deployment · September 2026 · OpenAI hackathon · Devpost · React 19 · Vite · TypeScript · Playwright</sub>
 - **[Local RAG API](https://github.com/UniverseScripts/local-rag-api)** — a local-first RAG backend: ingest PDF or TXT, then chat over it. Chunks are embedded with all-MiniLM-L6-v2 into ChromaDB and answered through Ollama, and every chat response returns its sources and inference time.<br><sub>Solo · February 2026 · Python · FastAPI · ChromaDB · sentence-transformers · Ollama · MIT</sub>
 - **[agentrisk-daas](https://github.com/UniverseScripts/agentrisk-daas)** — a risk-data service for the AI-agent package supply chain (MCP, npm, PyPI): a scraper on a six-hourly cron feeds a FastAPI, PostgreSQL and Redis API on Render, with a static Next.js front end. [Site](https://agentrisk-daas-asteriostech-projects.vercel.app).<br><sub>Solo · March–August 2026 · Python · FastAPI · SQLAlchemy · Alembic · PostgreSQL · Redis · Next.js · Render</sub>
 
